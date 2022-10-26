@@ -1,26 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import bgo from "../bg-img.jpg";
 
 export const Home = () => {
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <div className="container">
       <p className="bgimg">
         <div className="header">
           <div className="logo">team</div>
-          <div className="logo2"></div>
-          <div className="link">Products</div>
-          <div className="links">Services</div>
-          <div className="links">Contact</div>
-          <div className="links">Log in</div>
+          <div className="blue-dot"></div>
+          <Link className="link" to="Products">
+            Products
+          </Link>
+          <Link className="links" to="Services">
+            Services
+          </Link>
+          <Link className="links" to="Contacts">
+            Contact
+          </Link>
+          <Link className="links" to="Login">
+            Log in
+          </Link>
           <div className="get-access">Get Access</div>
         </div>
-        <div className="actualone">
-          <div className="adone">Instant collabrations for remote teams</div>
-          <div className="adtwo">
+        <div className="explanation">
+          <div className="title">Instant collabrations for remote teams</div>
+          <div className="description">
             All in one for your remote team chats, collaboration and track
             projects
+          </div>
+          <div className="get-early-access">
+            <input
+              className="email"
+              placeholder="Email"
+              value={inputValue}
+              onChange={(e) => {
+                setInputValue(e.target.value);
+              }}
+            />
+            <button
+              className="early-access-button"
+              onClick={() => {
+                console.log(inputValue);
+              }}
+            >
+              Get early access
+            </button>
           </div>
         </div>
       </p>

@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 .container {
   height: 100vh;
   width: 100%;
 }
 .bgimg {
   height: 100%;
-  background-image: url(./bg-img.jpg);
+  background-image: url(../public/bg-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0%;
 }
 .header {
@@ -15,59 +19,89 @@
 }
 .logo {
   font-size: 50px;
-  font-weight: bolder;
+  font-weight: 800;
   color: white;
   margin-left: 140px;
+  font-family: 'Mulish', sans-serif;
 }
-.logo2 {
+.blue-dot {
   height: 10px;
   width: 10px;
   background-color: #0BBEF2;
   margin-top: 28px;
 }
+.link:link { text-decoration: none; }
+.links:link { text-decoration: none; }
 .link {
   color: white;
   font-size: 20px;
-  font-weight: bold;
-  margin-left: 1000px;
+  font-weight: 700;
+  margin-left: 900px;
+  font-family: 'Mulish', sans-serif;
 }
 .links {
   color: white;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   margin-left: 50px;
+  font-family: 'Mulish', sans-serif;
 }
 .get-access {
   color: white;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   margin-left: 50px;
   height: 80%;
-  width: 200px;
+  width: 160px;
   border: 5px solid rgba(255, 255, 255, 0.5);
   opacity: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-family: 'Mulish', sans-serif;
 }
-.actualone {
+.explanation {
   margin-top: 200px;
   height: 500px;
   width: 700px;
   margin-left: 140px;
 }
-.adone {
-  font-size: 70px;
-  font-weight: 700;
+.title {
+  font-size: 60px;
+  font-weight: 600;
   color: white;
+  font-family: 'Work Sans', sans-serif;
 }
-.adtwo {
+.description {
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 20px;
   margin-top: 20px;
   width: 400px;
   line-height: 40px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Mulish', sans-serif;
+}
+.get-early-access {
+  margin-top: 70px;
+  display: flex;
+}
+.email {
+  width: 400px;
+  height: 50px;
+  font-size: larger;
+  padding-left: 20px;
+  font-weight: 600;
+}
+.early-access-button {
+  width: 200px;
+  height: 55px;
+  background-color: #0BBEF2;
+  margin-left: 20px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-size: larger;
+  font-family: 'Mulish', sans-serif;
 }
