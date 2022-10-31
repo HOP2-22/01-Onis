@@ -61,7 +61,31 @@ export const Home = () => {
             communication into one place.
           </div>
         </div>
-        <img src="pagetwo.png" alt="" className="page-two-first-image" />
+        <img src="pagetwo.png" alt="" className="page-two-image" />
+      </div>
+      <div className="page-three">
+        <img src="pagethree.png" alt="" className="page-three-image" />
+        <div className="explanation-three">
+          <div className="title-two">Simple task management</div>
+          <div className="description-two">
+            Give everyone you work with—inside and outside your company—a more
+            productive way to stay in sync. Respond faster with emoji, keep
+            conversations focused in channels, and simplify all your
+            communication into one place.
+          </div>
+        </div>
+      </div>
+      <div className="page-four">
+        <div className="explanation-four">
+          <div className="title-two">Scheduling that actually works</div>
+          <div className="description-two">
+            Give everyone you work with—inside and outside your company—a more
+            productive way to stay in sync. Respond faster with emoji, keep
+            conversations focused in channels, and simplify all your
+            communication into one place.
+          </div>
+        </div>
+        <img src="pagefour.png" alt="" className="page-four-image" />
       </div>
     </div>
   );
