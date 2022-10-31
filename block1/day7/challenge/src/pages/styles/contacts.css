@@ -1,0 +1,31 @@
+.contacts-container {
+    height: 100vh;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#timer {
+    font-size: 250px;
+    color: white;
+}
+button {
+    width: 200px;
+    height: 50px;
+    font-size: larger;
+    color: white;
+    font-weight: 800;
+    border: 0;
+    border-radius: 10px;
+    margin: 10px;
+}
+.stop {
+    background-color: rgb(255, 67, 67);
+}
+.resume {
+    background-color: rgb(67, 255, 105);
+}
+.reset {
+    background-color: rgb(67, 189, 255);
+}

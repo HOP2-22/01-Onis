@@ -7,7 +7,7 @@ export const Home = () => {
 
   return (
     <div className="container">
-      <p className="bgimg">
+      <p className="pageone">
         <div className="header">
           <div className="logo">team</div>
           <div className="blue-dot"></div>
@@ -51,6 +51,18 @@ export const Home = () => {
           </div>
         </div>
       </p>
+      <div className="page-two">
+        <div className="explanation-two">
+          <div className="title-two">Your Hub for teamwork</div>
+          <div className="description-two">
+            Give everyone you work with—inside and outside your company—a more
+            productive way to stay in sync. Respond faster with emoji, keep
+            conversations focused in channels, and simplify all your
+            communication into one place.
+          </div>
+        </div>
+        <img src="pagetwo.png" alt="" className="page-two-first-image" />
+      </div>
     </div>
   );
 };
