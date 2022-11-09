@@ -270,9 +270,10 @@ body {
   width: 350px;
   padding-left: 20px;
   border: 0;
+  color: #4DA0FD;
+  font-size: 20px;
+  font-family: 'Mulish', sans-serif;
 }
 .footer-input::placeholder {
   color: #4DA0FD;
-  font-family: 'Mulish', sans-serif;
-  font-size: 20px;
 }
