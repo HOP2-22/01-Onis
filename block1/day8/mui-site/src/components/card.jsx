@@ -1,38 +1,48 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions, Avatar } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
-export const ActionAreaCard = (props) => {
-  const { image, name } = props;
+import { ColorModeContext } from "../context/ThemeContext";
+
+export const ActionAreaCard = ({ data }) => {
+  const { changeTheme, isDark } = useContext(ColorModeContext);
   return (
-    <Card sx={{ maxWidth: 345, margin: 3 }}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        margin: 3,
+        height: 400,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        backgroundColor: isDark ? "#141414" : "white",
+      }}
+    >
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
+        <CardMedia component="img" height="140" image={data.image} alt="" />
         <CardContent>
           <Typography
             gutterBottom
             variant="h5"
             component="div"
-            sx={{ marginTop: 2 }}
+            sx={{ color: isDark ? "white" : "black" }}
           >
-            Lizard
+            {data.text}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            sx={{ color: isDark ? "white" : "black" }}
+          >
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Avatar sx={{ bgcolor: deepOrange[500] }}>{image}</Avatar>
+        <Avatar sx={{ bgcolor: deepOrange[500] }} src={data.owner.picture} />
         <Typography
           sx={{
             fontSize: 15,
@@ -43,7 +53,7 @@ export const ActionAreaCard = (props) => {
           }}
           color={"GrayText"}
         >
-          {name}
+          {data.owner.firstName + " " + data.owner.lastName}
         </Typography>
         <Typography sx={{ margiinLeft: 2 }} color={"GrayText"}>
           28th March 2022
