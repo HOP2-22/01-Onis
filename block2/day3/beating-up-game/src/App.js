@@ -7,6 +7,8 @@ function App() {
   const [second, setSecond] = useState(30);
   const [minute, setMinute] = useState(1);
   const [over, setOver] = useState(false);
+  const [score, setScore] = useState(0);
+  const addScore = () => setScore(score + 1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,7 +20,7 @@ function App() {
         }
         if (second === 0) {
           setMinute(minute - 1);
-          setSecond(60);
+          setSecond(59);
         }
       }
       if (second === 0 && minute === 0) {
@@ -47,36 +49,52 @@ function App() {
       >
         <div
           style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: "50px",
-            width: "100px",
             marginTop: "30px",
+            display: "flex",
           }}
         >
-          {minute}:{second}:{milisecond}
+          <div
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "50px",
+              width: "500px",
+            }}
+          >
+            {minute}:{second}.{milisecond}
+          </div>
+          <div
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "50px",
+              width: "250px",
+            }}
+          >
+            score: {score}
+          </div>
         </div>
         <div style={{ marginTop: "30px" }}>
-          <div>
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
+          <div style={{ display: "flex" }}>
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
           </div>
-          <div>
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
+          <div style={{ display: "flex" }}>
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
           </div>
-          <div>
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
-            <Hole />
+          <div style={{ display: "flex" }}>
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
+            <Hole addScore={addScore} />
           </div>
         </div>
       </div>
@@ -88,6 +106,14 @@ function App() {
         }}
       >
         GAME OVER
+        <div
+          style={{
+            color: "white",
+            fontSize: "40px",
+          }}
+        >
+          your score was: {score}
+        </div>
       </div>
     </div>
   );

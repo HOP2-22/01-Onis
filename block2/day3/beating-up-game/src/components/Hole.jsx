@@ -2,40 +2,43 @@ import "../App.css";
 import React from "react";
 import { useState, useEffect } from "react";
 
-export const Hole = () => {
+export const Hole = ({ addScore }) => {
   const [up, setUp] = useState(125);
+  const [on, setOn] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setUp(20);
-    }, Math.floor(Math.random() * (10000 - 1000)) + 1000);
+    }, Math.floor(Math.random() * (15000 - 3000)) + 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <button
+    <div
       style={{
-        backgroundColor: "rgba(0, 0, 0, 0)",
-        border: 0,
-        height: "100px",
-      }}
-      onClick={() => {
-        setUp(125);
+        display: "flex",
+        justifyContent: "center",
+        width: "110px",
+        height: "300px",
       }}
     >
-      <div
+      <img
+        src="UpperBack.png"
+        alt="upperBack"
+        style={{ position: "absolute" }}
+      />
+      <button
         style={{
+          backgroundColor: "rgba(0, 0, 0, 0)",
+          border: 0,
           display: "flex",
           justifyContent: "center",
-          width: "100px",
-          height: "300px",
+        }}
+        onClick={() => {
+          setUp(125);
+          addScore();
         }}
       >
-        <img
-          src="UpperBack.png"
-          alt="upperBack"
-          style={{ position: "absolute" }}
-        />
         <img
           src="rat.png"
           alt="rat"
@@ -43,15 +46,15 @@ export const Hole = () => {
             position: "absolute",
             transform: `translateY(${up + "px"})`,
           }}
-          className="rat"
+          id="rat"
         />
-        <img
-          src="LowerBack.png"
-          alt="lowerBack"
-          style={{ position: "absolute", transform: "translateY(127px)" }}
-        />
-      </div>
-    </button>
+      </button>
+      <img
+        src="LowerBack.png"
+        alt="lowerBack"
+        style={{ position: "absolute", transform: "translateY(127px)" }}
+      />
+    </div>
   );
 };
 
