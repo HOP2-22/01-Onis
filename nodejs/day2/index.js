@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const userRouter = require("./router/userRouter");
 const postRouter = require("./router/postRouter");
@@ -13,7 +14,7 @@ mongoose.connection.once("open", () => {
 });
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.use(userRouter);

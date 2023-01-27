@@ -1,0 +1,17 @@
+img {
+  transition: 0.5s ease-in-out;
+}
+@keyframes shake {
+  0% {
+    transform: translate();
+  }
+  33% {
+    transform: translate(10px);
+  }
+  66% {
+    transform: translate(-10px);
+  }
+  100% {
+    transform: translate();
+  }
+}
