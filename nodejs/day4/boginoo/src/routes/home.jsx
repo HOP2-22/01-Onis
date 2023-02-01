@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../context/context";
+import Cookies from "js-cookie";
 
 function Home() {
   const [original, setOriginal] = useState();
@@ -13,14 +14,13 @@ function Home() {
 
   const createLink = async () => {
     try {
-      const data = await axios.post(`http://localhost:7777/url`, {
+      const data = await axios.post(`https://onis-boginoo.onrender.com/url`, {
         original: link,
       });
-      console.log(data.data.data);
       setOriginal(data.data.data.original);
       setShorturl(data.data.data.shorturl);
     } catch (error) {
-      console.log(error);
+      alert("bruhh its not working");
     }
   };
 
@@ -86,6 +86,7 @@ function Home() {
             justifyContent: "center",
             alignItems: "center",
           }}
+          className="user"
         >
           {user}
           <img
@@ -97,6 +98,26 @@ function Home() {
             }}
           />
         </div>
+        <button
+          style={{
+            boxShadow: "0 2px 5px 0 rgba(0, 0, 0, 0.26)",
+            position: "absolute",
+            height: "50px",
+            width: "120px",
+            transform: "translate(10px,40px)",
+            border: "0",
+            borderRadius: "5px",
+            fontFamily: "'Ubuntu', sans-serif",
+            fontWeight: 700,
+          }}
+          className="logout-button"
+          onClick={() => {
+            Cookies.remove("token");
+            document.location.reload();
+          }}
+        >
+          Log Out
+        </button>
       </div>
       <div
         style={{
@@ -212,7 +233,9 @@ function Home() {
         <div style={{ color: "GrayText", fontSize: "15px", marginTop: "50px" }}>
           Богино холбоос:
         </div>
-        <div style={{ fontSize: "20px" }}>http://localhost:3001/{shorturl}</div>
+        <div style={{ fontSize: "20px" }}>
+          https://boginoo-onis.web.app/{shorturl}
+        </div>
       </div>
       <div
         style={{

@@ -7,8 +7,9 @@ require("dotenv").config();
 const register = async (request, response) => {
   const { email, password } = request.body;
 
-  if (!email || !password) {
+  if (!email || !password || email.length == 0 || password.length == 0) {
     response.status(400).json({ message: "invalid credentials" });
+    return;
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -53,8 +54,17 @@ const login = async (request, response) => {
     response.send(error);
   }
 };
+const identifyUser = async (req, res) => {
+  const token = req?.headers?.token;
+  if (!token) {
+    return res.status(401).json({ message: "no token provided" });
+  }
+  const data = await jwt.decode(token, process.env.ACCESS_TOKEN_KEY);
+  res.status(200).json(data);
+};
 
 module.exports = {
   register,
   login,
+  identifyUser,
 };

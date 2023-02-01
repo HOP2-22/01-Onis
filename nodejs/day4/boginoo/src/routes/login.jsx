@@ -1,27 +1,32 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Context } from "../context/context";
+import Cookies from "js-cookie";
 
 function Login() {
+  const navigate = useNavigate();
   const [short, setShort] = useState(true);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const { user, setUser } = useContext(Context);
 
   const signin = async () => {
     try {
-      const login = await axios.post(`http://localhost:7777/auth/login`, {
-        email: email,
-        password: password,
-      });
+      const login = await axios.post(
+        `https://onis-boginoo.onrender.com/auth/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
+      console.log(login);
       if (login) {
         setShort(false);
-        setUser(email);
+        Cookies.set("token", login.data.token);
+        navigate("/");
+        document.location.reload();
       }
-      console.log(login);
     } catch (error) {
-      console.log(error);
+      alert("something is wrong bro");
     }
   };
   return (

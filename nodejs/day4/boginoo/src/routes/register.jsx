@@ -1,26 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Context } from "../context/context";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function Register() {
+  const navigate = useNavigate();
   const [short, setShort] = useState(true);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [checkpassword, setCheckpassword] = useState();
-  const [checkedpassword, setCheckedpassword] = useState();
-  const { user, setUser } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkpassword, setCheckpassword] = useState("");
 
   const register = async () => {
+    if (password !== checkpassword) {
+      alert("Нууц үг алдаатай!");
+      return;
+    }
     try {
-      const login = await axios.post(`http://localhost:7777/auth/register`, {
-        email: email,
-        password: checkedpassword,
-      });
+      const login = await axios.post(
+        `https://onis-boginoo.onrender.com/auth/register`,
+        {
+          email: email,
+          password: password,
+        }
+      );
       if (login) {
+        Cookies.set("token", login.data.token);
         setShort(false);
+        navigate("/login");
+        document.location.reload();
       }
     } catch (error) {
-      console.log(error);
+      alert("do it properly bruh");
     }
   };
   return (
@@ -240,13 +250,7 @@ function Register() {
             }}
             id="login-button"
             onClick={() => {
-              if (password === checkpassword) {
-                setCheckedpassword(password);
-                register();
-                setUser(email);
-              } else {
-                alert("Нууц үг алдаатай!");
-              }
+              register();
             }}
           >
             БҮРТГҮҮЛЭХ

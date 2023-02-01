@@ -15,3 +15,15 @@ img {
     transform: translate();
   }
 }
+.user:hover ~ .logout-button {
+  display: block;
+}
+.logout-button {
+  background-color: white;
+  transition: linear 0.2s;
+  display: none;
+}
+.logout-button:hover {
+  display: block;
+  background-color: rgb(245, 245, 245);
+}
