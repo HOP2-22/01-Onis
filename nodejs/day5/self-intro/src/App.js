@@ -123,9 +123,9 @@ function App() {
             </Box>
           </Box>
           <Stack direction="row" spacing={1} sx={{ mt: 5 }}>
-            <Chip label="Im the smartest person who lives!" />
-            <Chip label="Bruh moment" />
-            <Chip label="Sussy baka" />
+            <Chip label="Smartest person" />
+            <Chip label="Bruh" />
+            <Chip label="Nyoho" />
           </Stack>
 
           <Typography variant="h5" color="textPrimary" sx={{ mt: 5 }}>
