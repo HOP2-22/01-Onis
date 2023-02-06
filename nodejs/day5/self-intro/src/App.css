@@ -1,0 +1,6 @@
+div > .egg:hover {
+  transform: rotate(-45deg);
+}
+div > .egg {
+  transition: ease-in 0.1s;
+}
