@@ -1,6 +1,41 @@
-div > .egg:hover {
-  transform: rotate(-45deg);
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=M+PLUS+1+Code&family=Nunito:wght@600&family=Sassy+Frass&display=swap");
+
+.Onis {
+  font-family: "Sassy Frass", cursive !important;
 }
-div > .egg {
+
+.Dora {
+  font-family: "Nunito", sans-serif !important;
+}
+
+.MyName {
+  font-family: "M PLUS 1 Code", sans-serif !important;
+}
+
+.handWrite {
+  font-family: "Amatic SC", cursive !important;
+}
+
+div > .icon:hover {
+  transform: rotate(45deg) scale(2, 2);
+}
+div > .icon {
   transition: ease-in 0.1s;
+}
+
+.socialLinks > svg {
+  transition: ease-in 0.1s;
+}
+.socialLinks:hover > svg {
+  transform: scale(1.5, 1.5);
+}
+
+.Model {
+  transition: ease-in 0.1s;
+  border-radius: 50px;
+}
+.Model:hover {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
